@@ -1,0 +1,173 @@
+
+1.Admin
+2.Student
+
+    name
+    gmail
+    phoneNumber
+    College
+    profilephoto
+    Room_Honour
+    List<Reputation>
+    numberOfReputation
+    rating
+    List<NearByFacilitiesTransaction>
+    List<Room_Honour> connectionRequests;
+    List<RenterHonourRelation>
+
+3.Room_Honour
+
+  name
+  gmail
+  phoneNumber
+  College
+  profilephoto
+  List<Student>
+  List<Reputation>
+  numberOfReputation
+  rating
+  List<Student> connectionsRequests;
+  List<RenterHonourRelation>
+  List<Room>
+
+4.Room
+
+  number
+  Room_Type
+  cost
+  Room_Honour
+  Address
+  List<Image>
+  Availability_Type --> 1.TooLate 2.Acquired
+
+5.Room_Type
+
+    >> SINGLE_ROOM
+    >> 1BHK
+    >> 2BHK
+    >> 3BHK
+    >> 4BHK
+
+6.Reputation
+
+    gmail
+    Student
+    Room_Honour
+    Mess
+    Laundry
+    RoomCleaning
+    Comment
+    Point
+
+7.College
+
+    name
+    List<Student>
+    List<Room_Honour>
+
+8.Mess
+
+    name
+    gmail
+    phoneNumber
+    College
+    profilePhoto
+    List<Reputation>
+    numberOfReputation
+    rating
+    List<NearByFacilitiesTransaction>
+    List<MessProduct>
+    List<MessProductCart>
+
+9.ImportantService-->ServiceProvider
+
+    name
+    gmail
+    phoneNumber
+    College
+    profilePhoto
+    List<Reputation>
+    numberOfReputation
+    rating
+    List<Services>
+    List<NearByFacilitiesTransaction>
+
+10.NearByFacilitiesTransaction-->Transaction
+
+    TransactionId
+    MessProductCart
+    totalAmount
+    ImportantService
+    Mess
+    Student
+    CreationTime
+
+11.RenterHonourRelation-->Relation
+
+    rent
+    student
+    room_honour
+    duration
+    relationType --> 1.ACTIVE 2.OVER
+
+12.MessProduct
+
+   productName
+   price
+
+13.MessProductCart
+
+    List<productName>
+    Mess
+    student
+
+14.Services-->RoomService
+
+    Service_Type
+    price
+    ImportantService
+
+15.Profile-->UserResponse
+
+    Account_Type
+    name
+    profileImage
+    List<Reputation>
+    Rating
+    NumberOfRatings
+
+APIs
+1. Add a College --> Update
+2. Add Student --> Update
+3. Add Room_Honour --> Update
+4. Add Room --> Update
+5. Add Mess --> Update
+6. Add ImportantService --> Update
+7. Add MessProduct --> Delete
+8. Add Services --> Update --> Delete
+9. Student can give reputation to room_honour --> Update
+10. Room_honour can give reputation to Student --> Update
+11. Student can give reputation to ImportantService --> update
+12. Student can search MessProducts by ProductName, by MessName and by both
+13. Student can order a meal from a particular mess
+14. Mess can get List of UnAccepted Orders
+15. Mess can accept a order
+16. Mess can get Transaction List by Date or In Range of Date
+17. Mess can Get Total Sell by Date or in Range of Date
+18. ImportantService can get List of UnAccepted Orders
+19. ImportantService can accept a order
+20. ImportantService can get Transaction List by Date or In Range of Date
+21. ImportantService can Get Total Earning by Date or in Range of Date
+22. Student can order a service
+23. Student can get Transaction List byAll, byService, byMessOrder
+24. Any User can check any User's profile
+25. Student Can Accept Connection Request From Room_Honour
+26. Student Can Reject Connection Request From Room_Honour
+27. Student Can Send Connection Request to Room_Honour
+28. Room_Honour Can Accept Connection Request From Student
+29. Room_Honour Can Reject Connection Request From Student
+30. Room_Honour Can Send Connection Request to Student
+31. Any User can get List of user's profile By college, their Name, AccountType, and combination
+32. Student and Room_Honour can get their AllRelations, by College, by name, by id
+33. Student can search Services by College, ServiceType, by ImportantServiceName and combination
+34. Student can search room by College, RoomType, Room_Honour and combination
